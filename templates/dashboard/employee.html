@@ -1,0 +1,70 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card has-table">
+<header class="card-header">
+    <p class="card-header-title">
+    <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+    Employees
+    </p>
+    {% if employee.count == 0 and request.user.is_superuser %}
+    <a href="{% url 'add' %}" class="card-header-icon">
+    <span class="icon"><i class="mdi mdi-account-multiple-plus"></i></span>
+    </a>
+    {% elif employee.count != 0 and request.user.is_superuser %}
+    <a href="{% url 'add' %}" class="card-header-icon">
+    <span class="icon"><i class="mdi mdi-account-multiple-plus"></i></span>
+    </a>
+    <a href="{% url 'employee' %}" class="card-header-icon">
+    <span class="icon"><i class="mdi mdi-reload"></i></span>
+    </a>
+    {% endif %}
+    
+</header>
+<div class="card-content">
+    <table>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Bio</th>
+        <th>DNI</th>
+        <th>Progress</th>
+        <th></th>
+    </tr>
+    </thead>
+
+   
+    {% for employees in employee %}
+    <tbody>
+    <tr>
+        <td class="image-cell">
+        <div class="image">
+            <img src="{{ employees.image.url }}" class="rounded-full">
+        </div>
+        </td>
+        <td data-label="Name">{{ employees.user }}</td>
+        <td data-label="bio">{{ employees.bio }}  </td>
+        <td data-label="City"> {{ employees.dni }}</td>
+        <td data-label="Progress" class="progress-cell">
+        <progress max="100" value="79">79</progress>
+     
+        <td class="actions-cell">
+        <div class="buttons right nowrap">
+            <a href="{% url 'edit' employees.user.username %}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+            <span class="icon"><i class="mdi mdi-pencil"></i></span>
+            </a>
+            <a href="{% url 'delete' employees.user_id %}" class="button small red --jb-modal" data-target="sample-modal" type="button">
+            <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+            </a>
+        </div>
+        </td>
+    </tr>
+    </tbody>
+    {% endfor %}
+
+</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section class="is-title-bar">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+    <ul>
+      <li>Admin</li>
+      <li>Profile</li>
+    </ul>
+  </div>
+</section>
+
+<section class="is-hero-bar">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+    <h1 class="title">
+      Profile
+    </h1>
+    <a href="{% url 'edit' %}" class="button light">Editar</a>
+  </div>
+</section>
+  <section class="section main-section">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 mb-6">
+      <div class="card">
+        
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-account"></i></span>
+            Profile
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="image w-48 h-48 mx-auto">
+            <img src="{{ user.employee.image.url }}" alt="John Doe" class="rounded-full">
+          </div>
+          <hr>
+          <div class="field">
+            <label class="label">First name</label>
+            <div class="control">
+              <input type="text" readonly value="{{ user.first_name }}" class="input is-static">
+            </div>
+          </div>
+          <hr>
+          <div class="field">
+            <label class="label">Bio</label>
+            <div class="control">
+              <input type="text" readonly value="{{ user.employee.bio }}" class="input is-static">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+{% endblock content %}
+
