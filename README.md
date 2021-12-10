@@ -1,22 +1,37 @@
-<a href="https://ya-llegue-django.herokuapp.com/login/" target="_blank" ># ya-llegue</a>
-usuario de prueba
+### Para acceder directamente:
+<a href="https://ya-llegue-django.herokuapp.com/login/" target="_blank"> Ya-llege-django</a>
+
+Login de prueba:
 usuario: ana
 contraseña: D12345678,
 
-Clona el repositorio o descargalo como zip.
-git clone https://github.com/anarkopin/ya-llegue.git
+#### Para utilizarlo/configurarlo:
 
-Crea un ambiente virtual
-python -m virtuaenv env
+1. Clona el repositorio o descargalo como zip.
 
-Instala las dependencias/librerias en requirements.txt
-pip install -r requirements.txt
+```git clone https://github.com/anarkopin/ya-llegue.git```
 
-Ejecuta las migraciones.
-python manage.py makemigrations python manage.py migrate
 
-Crea un superusuario.
-python manage.py createsuperuser
+2. Crea un ambiente virtual 
 
-Corre el servidor.
-python manage.py runserver
+```python -m venv socialenv```
+
+
+3. Instala las dependencias/librerias en requirements.txt
+
+```pip install -r requirements.txt```
+
+
+4. Ejecuta las migraciones.
+
+```python manage.py makemigrations```
+```python manage.py migrate```
+
+
+5. Crea un superusuario.
+
+```python manage.py createsuperuser```
+
+6. Corre el servidor.
+
+```python manage.py runserver```
